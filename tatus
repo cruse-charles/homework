@@ -1,0 +1,240 @@
+[33mcommit ed2d34f7a0ceedbb146f51a899eee6a540f7f523[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Charles Cruse <charle9@vt.edu>
+Date:   Wed Jan 25 23:33:47 2023 -0500
+
+    hw
+
+[1mdiff --git a/W3D4/sample.rb b/W3D4/sample.rb[m
+[1mnew file mode 100644[m
+[1mindex 0000000..e69de29[m
+
+[33mcommit 45d269621a790da45af381a8161368f8ad0714c3[m
+Author: Charles Cruse <charle9@vt.edu>
+Date:   Wed Jan 25 12:03:33 2023 -0500
+
+    added recursion hw
+
+[1mdiff --git a/recursion_hw/recursion_hw.rb b/recursion_hw/recursion_hw.rb[m
+[1mnew file mode 100644[m
+[1mindex 0000000..cc2f2ef[m
+[1m--- /dev/null[m
+[1m+++ b/recursion_hw/recursion_hw.rb[m
+[36m@@ -0,0 +1,81 @@[m
+[32m+[m[32mp "------------------------Question 1------------------------"[m[41m[m
+[32m+[m[32mdef sum_to(n)[m[41m[m
+[32m+[m[32m    return nil if n < 1[m[41m[m
+[32m+[m[32m    return 1 if n == 1[m[41m[m
+[32m+[m[32m    n + sum_to(n-1)[m[41m[m
+[32m+[m[32mend[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32mp sum_to(5)  # => returns 15[m[41m[m
+[32m+[m[32mp sum_to(1)  # => returns 1[m[41m[m
+[32m+[m[32mp sum_to(9)  # => returns 45[m[41m[m
+[32m+[m[32mp sum_to(-8)  # => returns nil[m[41m[m
+[32m+[m[41m[m
+[32m+[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32mp "------------------------Question 2------------------------"[m[41m[m
+[32m+[m[41m[m
+[32m+[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32mdef add_numbers(nums_array)[m[41m[m
+[32m+[m[32m    return nums_array[0] if nums_array.length == 1[m[41m[m
+[32m+[m[32m    return nil if nums_array.length == 0[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32m    nums_array.pop + add_numbers(nums_array)[m[41m[m
+[32m+[m[32mend[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32mp add_numbers([1,2,3,4]) # => returns 10[m[41m[m
+[32m+[m[32mp add_numbers([3]) # => returns 3[m[41m[m
+[32m+[m[32mp add_numbers([-80,34,7]) # => returns -39[m[41m[m
+[32m+[m[32mp add_numbers([]) # => returns nil[m[41m[m
+[32m+[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32mp "------------------------Question 3------------------------"[m[41m[m
+[32m+[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32mdef gamma_fnc(num)[m[41m[m
+[32m+[m[32m    return 1 if num == 1[m[41m[m
+[32m+[m[32m    return nil if num < 1[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32m    (num - 1) * gamma_fnc(num - 1)[m[41m[m
+[32m+[m[32mend[m[41m[m
+[32m+[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32mp gamma_fnc(0)  # => returns nil[m[41m[m
+[32m+[m[32mp gamma_fnc(1)  # => returns 1[m[41m[m
+[32m+[m[32mp gamma_fnc(4)  # => returns 6[m[41m[m
+[32m+[m[32mp gamma_fnc(8)  # => returns 5040[m[41m[m
+[32m+[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32mp "------------------------Question 4------------------------"[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32mdef ice_cream_shop(flavors, favorite)[m[41m[m
+[32m+[m[32m    return false if flavors.empty?[m[41m[m
+[32m+[m[32m    return true if flavors.pop == favorite[m[41m[m
+[32m+[m[41m    [m
+[32m+[m[32m    ice_cream_shop(flavors[0...-1], favorite)[m[41m[m
+[32m+[m[32mend[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32mp ice_cream_shop(['vanilla', 'strawberry'], 'blue moon')  # => returns false[m[41m[m
+[32m+[m[32mp ice_cream_shop(['pistachio', 'green tea', 'chocolate', 'mint chip'], 'green tea')  # => returns true[m[41m[m
+[32m+[m[32mp ice_cream_shop(['cookies n cream', 'blue moon', 'superman', 'honey lavender', 'sea salt caramel'], 'pistachio')  # => returns false[m[41m[m
+[32m+[m[32mp ice_cream_shop(['moose tracks'], 'moose tracks')  # => returns true[m[41m[m
+[32m+[m[32mp ice_cream_shop([], 'honey lavender')  # => returns false[m[41m[m
+[32m+[m[41m[m
+[32m+[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32mp "------------------------Question 5------------------------"[m[41m[m
+[32m+[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32mdef reverse(string)[m[41m[m
+[32m+[m[32m    return "" if string == ""[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32m    string[-1] + reverse(string[0...-1])[m[41m[m
+[32m+[m[32mend[m[41m[m
+[32m+[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32mp reverse("house") # => "esuoh"[m[41m[m
+[32m+[m[32mp reverse("dog") # => "god"[m[41m[m
+[32m+[m[32mp reverse("atom") # => "mota"[m[41m[m
+[32m+[m[32mp reverse("q") # => "q"[m[41m[m
+[32m+[m[32mp reverse("id") # => "di"[m[41m[m
+[32m+[m[32mp reverse("") # => ""[m
+\ No newline at end of file[m
+[1mdiff --git a/solution/solution/enumerables-array.rb b/solution/solution/enumerables-array.rb[m
+[1mnew file mode 100644[m
+[1mindex 0000000..d4df7da[m
+[1m--- /dev/null[m
+[1m+++ b/solution/solution/enumerables-array.rb[m
+[36m@@ -0,0 +1,103 @@[m
+[32m+[m[32mclass Array[m
+[32m+[m[32m  def my_each(&prc)[m
+[32m+[m[32m    self.length.times do |i|[m
+[32m+[m[32m      prc.call(self[i])[m
+[32m+[m[32m    end[m
+[32m+[m
+[32m+[m[32m    self[m
+[32m+[m[32m  end[m
+[32m+[m
+[32m+[m[32m  def my_select(&prc)[m
+[32m+[m[32m    selects = [][m
+[32m+[m
+[32m+[m[32m    self.my_each do |item|[m
+[32m+[m[32m      selects << item if prc.call(item)[m
+[32m+[m[32m    end[m
+[32m+[m
+[32m+[m[32m    selects[m
+[32m+[m[32m  end[m
+[32m+[m
+[32m+[m[32m  def my_reject(&prc)[m
+[32m+[m[32m    selects = [][m
+[32m+[m
+[32m+[m[32m    self.my_each do |item|[m
+[32m+[m[32m      selects << item unless prc.call(item)[m
+[32m+[m[32m    end[m
+[32m+[m
+[32m+[m[32m    selects[m
+[32m+[m[32m  end[m
+[32m+[m
+[32m+[m[32m  def my_any?(&prc)[m
+[32m+[m[32m    self.my_each do |item|[m
+[32m+[m[32m      return true if prc.call(item)[m
+[32m+[m[32m    end[m
+[32m+[m
+[32m+[m[32m    false[m
+[32m+[m[32m  end[m
+[32m+[m
+[32m+[m[32m  def my_all?(&prc)[m
+[32m+[m[32m    self.my_each do |item|[m
+[32m+[m[32m      return false unless prc.call(item)[m
+[32m+[m[32m    end[m
+[32m+[m
+[32m+[m[32m    true[m
+[32m+[m[32m  end[m
+[32m+[m
+[32m+[m[32m  def my_flatten[m
+[32m+[m[32m    flattened = [][m
+[32m+[m
+[32m+[m[32m    self.my_each do |el|[m
+[32m+[m[32m      if el.is_a?(Array)[m
+[32m+[m[32m        flattened.concat(el.my_flatten)[m
+[32m+[m[32m      else[m
+[32m+[m[32m        flattened << el[m
+[32m+[m[32m      end[m
+[32m+[m[32m    end[m
+[32m+[m
+[32m+[m[32m    flattened[m
+[32m+[m[32m  end[m
+[32m+[m
+[32m+[m[32m  def my_zip(*arrays)[m
+[32m+[m[32m    zipped = [][m
+[32m+[m
+[32m+[m[32m    self.length.times do |i|[m
+[32m+[m[32m      subzip = [self[i]][m
+[32m+[m
+[32m+[m[32m      arrays.my_each do |array|[m
+[32m+[m[32m        subzip << array[i][m
+[32m+[m[32m      end[m
+[32m+[m
+[32m+[m[32m      zipped << subzip[m
+[32m+[m[32m    end[m
+[32m+[m
+[32m+[m[32m    zipped[m
+[32m+[m[32m  end[m
+[32m+[m
+[32m+[m[32m  def my_rotate(positions = 1)[m
+[32m+[m[32m    split_idx = positions % self.length[m
+[32m+[m
+[32m+[m[32m    self.drop(split_idx) + self.take(split_idx)[m
+[32m+[m[32m  end[m
+[32m+[m
+[32m+[m[32m  def my_join(separator = "")[m
+[32m+[m[32m    join = ""[m
+[32m+[m
+[32m+[m[32m    self.length.times do |i|[m
+[32m+[m[32m      join += self[i][m
+[32m+[m[32m      join += separator unless i == self.length - 1[m
+[32m+[m[32m    end[m
+[32m+[m
+[32m+[m[32m    join[m
+[32m+[m[32m  end[m
+[32m+[m
+[32m+[m[32m  def my_reverse[m
+[32m+[m[32m    reversed = [][m
+[32m+[m
+[32m+[m[32m    self.my_each do |el|[m
+[32m+[m[32m     reversed.unshift(el)[m
+[32m+[m[32m    end[m
+[32m+[m
+[32m+[m[32m    reversed[m
+[32m+[m[32m  end[m
+[32m+[m
+[32m+[m[32mend[m
+
+[33mcommit 15701ec091977055fc137bfc276087be3828d03b[m
+Author: Charles Cruse <charle9@vt.edu>
+Date:   Mon Jan 23 15:18:25 2023 -0500
+
+    w2d5 hw
+
+[1mdiff --git a/w2d5/circle.rb b/w2d5/circle.rb[m
+[1mnew file mode 100644[m
+[1mindex 0000000..d1a946b[m
+[1m--- /dev/null[m
+[1m+++ b/w2d5/circle.rb[m
+[36m@@ -0,0 +1,3 @@[m
+[32m+[m[32mdef area(radius)[m[41m[m
+[32m+[m[32m    3.14 * radius * radius[m[41m[m
+[32m+[m[32mend[m
+\ No newline at end of file[m
+
+[33mcommit c2f8a9fa8f09f84b9252d73095e2e3b08e8fa9d0[m
+Author: Charles Cruse <charle9@vt.edu>
+Date:   Mon Jan 23 15:06:36 2023 -0500
+
+    first commit
+
+[1mdiff --git a/test.rb b/test.rb[m
+[1mnew file mode 100644[m
+[1mindex 0000000..e69de29[m
