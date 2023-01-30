@@ -1,7 +1,7 @@
 class GraphNode
 
     def bfs(starting_node, target_value)
-        visited_nodes = [starting_node]
+        visited = [starting_node]
         queue = #not sure
 
         until queue.empty?
@@ -9,7 +9,7 @@ class GraphNode
             if current_node.value == target_value
               return current_node
             end
-            visited_nodes << node
+            visited << node
           end
         end
       end
